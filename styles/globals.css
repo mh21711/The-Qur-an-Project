@@ -259,10 +259,9 @@ a {
   }
 
   .explain-container {
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
     right: auto;
-    top: -120px;
+    top: -100px;
     width: 230px;
     max-height: 100px;
   }
