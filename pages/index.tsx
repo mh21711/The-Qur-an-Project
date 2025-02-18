@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Ayahs, Surahs } from "./data";
+import { Ayahs, Surahs } from "../Function And Data/data";
 import AudioFunction from "./Audio";
-import { getRandomColor } from "./Functions";
+import { getRandomColor } from "../Function And Data/Functions";
 
 // Define the type of an Ayah
 interface Ayah {
