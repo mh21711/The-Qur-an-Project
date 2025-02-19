@@ -60,7 +60,11 @@ function Home() {
 
   // Function to handle Ayah selection
   function handleAyahSelection() {
-    const ayah = Ayahs.find((ele) => Number(ele.SurahNumber) === surahNumber && Number(ele.AyahNumber) === ayahNumber);
+    const ayah = Ayahs.find(
+      (ele) =>
+        Number(ele.SurahNumber) === surahNumber &&
+        Number(ele.AyahNumber) === ayahNumber
+    );
     if (!ayah) {
       setMessage("الآية غير موجودة"); // Ayah not found
       return;
@@ -75,7 +79,9 @@ function Home() {
   function getNextAyah() {
     if (randomAyah) {
       const nextAyahNumber = randomAyah.GlobalAyahNumber + 1;
-      const nextAyah = Ayahs.find((ele) => ele.GlobalAyahNumber === nextAyahNumber);
+      const nextAyah = Ayahs.find(
+        (ele) => ele.GlobalAyahNumber === nextAyahNumber
+      );
       if (!nextAyah) {
         setMessage("لا يوجد آية تالية"); // No next Ayah
         return;
@@ -91,7 +97,9 @@ function Home() {
   function getPreviousAyah() {
     if (randomAyah) {
       const previousAyahNumber = randomAyah.GlobalAyahNumber - 1;
-      const previousAyah = Ayahs.find((ele) => ele.GlobalAyahNumber === previousAyahNumber);
+      const previousAyah = Ayahs.find(
+        (ele) => ele.GlobalAyahNumber === previousAyahNumber
+      );
       if (!previousAyah) {
         setMessage("لا يوجد آية سابقة"); // No previous Ayah
         return;
@@ -116,15 +124,17 @@ function Home() {
       {/* Display Any Errors or Any Messages */}
       <p className="message">{message}</p>
 
+      {/* Display The Explain Of The Ayah */}
+      <div
+        className="explain-container"
+        style={explainState ? { right: "0px" } : { right: "-100%" }}
+      >
+        <span onClick={() => setExplainState(false)}>X</span>
+        {randomAyah?.AyahExplain}
+      </div>
+
       {/* Display the Ayah and Surah And The Explain of The Ayah */}
       <div className="ayah-container">
-        <div
-          className="explain-container"
-          style={explainState ? { display: "block" } : { display: "none" }}
-        >
-          <span onClick={() => setExplainState(false)}>x</span>
-          {randomAyah?.AyahExplain}
-        </div>
         <p className="ayah-text" style={{ color: randomColor }}>
           {randomAyah?.AyahText}
         </p>
