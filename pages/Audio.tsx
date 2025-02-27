@@ -20,9 +20,10 @@ interface AudioProps {
 
 // Component to fetch and play Ayah audio
 function AudioComponent({ randomAyah, reader_id, getNextAyah }: AudioProps) {
-  const [audioUrl, setAudioUrl] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>(true);
-  const audioElement = useRef<HTMLAudioElement>(null);
+  const [audioUrl, setAudioUrl] = useState<string>(""); // State For Audio Url
+  const [loading, setLoading] = useState<boolean>(true); // State For The Loading
+  const [volume, setVolume] = useState<number>(1); // State For Storing The Audio Volume
+  const audioElement = useRef<HTMLAudioElement>(null); // For Selecting The Audio Element
 
   // Fetch audio URL when Ayah or Reciter changes
   useEffect(() => {
@@ -50,10 +51,16 @@ function AudioComponent({ randomAyah, reader_id, getNextAyah }: AudioProps) {
     fetchAudio();
   }, [randomAyah, reader_id]);
 
-  // Set default audio volume to 5%
+  function VolumeChange() {
+    if (audioElement) {
+      setVolume(Number(audioElement.current?.volume))
+    }
+  }
+
+  // Save The Audio Volume When Reloading The Audio Element
   useEffect(() => {
     if (audioElement.current) {
-      audioElement.current.volume = 0.05;
+      audioElement.current.volume = volume;
     }
   }, [audioUrl]);
 
@@ -70,6 +77,7 @@ function AudioComponent({ randomAyah, reader_id, getNextAyah }: AudioProps) {
       ref={audioElement}
       src={audioUrl}
       controls
+      onVolumeChange={VolumeChange}
       onEnded={getNextAyah}
       autoPlay
     />
