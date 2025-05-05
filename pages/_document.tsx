@@ -8,10 +8,10 @@ export default function Document() {
           name="google-site-verification"
           content="5Fn3rPvNO4oGrqunk4VWGakt-OyxNzesnMndHzC6B8k"
         />
-        <title>Quran</title>
+        <title>Quran 217 – Listen and Read the Quran</title>
         <meta
           name="description"
-          content="This a website where you can read or listen to quran and the explain of the ayah and there is a lot of readers you can listen to."
+          content="Quran 217 is a website where you can read or listen to the Quran, explore Ayah explanations, and choose from many reciters."
         />
       </Head>
       <body>
