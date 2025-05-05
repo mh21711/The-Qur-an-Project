@@ -6,7 +6,7 @@ export default function Document() {
       <Head>
         <meta
           name="google-site-verification"
-          content="hfDvv08MMEnEtP-vqauPIKPZ_5_UvBTkjM-IaV1XGAo"
+          content="5Fn3rPvNO4oGrqunk4VWGakt-OyxNzesnMndHzC6B8k"
         />
         <title>Quran</title>
         <meta
