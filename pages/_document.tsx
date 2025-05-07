@@ -49,7 +49,7 @@ export default function Document() {
               "@type": "Organization",
               "name": "Quran 217",
               "url": "https://quran-217.netlify.app",
-              "logo": "https://quran-217.netlify.app/images/preview.jpg"
+              "logo": "https://quran-217.netlify.app/images/Website_Image.png"
             })
           }}
         />
